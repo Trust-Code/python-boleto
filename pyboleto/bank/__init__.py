@@ -10,6 +10,7 @@ BANCOS_IMPLEMENTADOS = {
     '356': 'real.BoletoReal',
     '033': 'santander.BoletoSantander',
     '748': 'sicredi.BoletoSicredi',
+    '756': 'sicoob.BoletoSicoob',
 }
 
 
