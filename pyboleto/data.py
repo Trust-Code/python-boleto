@@ -170,6 +170,7 @@ class BoletoData(object):
         self._sacado = None
         self._valor = None
         self._valor_documento = None
+        self.label_cedente = 'Agência/Código cedente'
 
     @property
     def barcode(self):
@@ -188,17 +189,17 @@ class BoletoData(object):
         """
 
         for attr, length, data_type in [
-                ('codigo_banco', 3, str),
-                ('moeda', 1, str),
+                ('codigo_banco', 3, basestring),
+                ('moeda', 1, basestring),
                 ('data_vencimento', None, datetime.date),
-                ('valor_documento', -1, str),
-                ('campo_livre', 25, str)]:
+                ('valor_documento', -1, basestring),
+                ('campo_livre', 25, basestring)]:
             value = getattr(self, attr)
             if not isinstance(value, data_type):
                 raise TypeError("%s.%s must be a %s, got %r (type %s)" % (
                     self.__class__.__name__, attr, data_type.__name__, value,
                     type(value).__name__))
-            if (data_type == str and
+            if (data_type == basestring and
                     length != -1 and
                     len(value) != length):
                 raise ValueError(
@@ -451,7 +452,7 @@ class BoletoData(object):
 
     @staticmethod
     def modulo10(num):
-        if not isinstance(num, str):
+        if not isinstance(num, basestring):
             raise TypeError
         soma = 0
         peso = 2
@@ -476,7 +477,7 @@ class BoletoData(object):
 
     @staticmethod
     def modulo11(num, base=9, r=0):
-        if not isinstance(num, str):
+        if not isinstance(num, basestring):
             raise TypeError
         soma = 0
         fator = 2
