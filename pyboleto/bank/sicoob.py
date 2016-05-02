@@ -22,6 +22,8 @@ class BoletoSicoob(BoletoData):
         self.logo_image = "logo_sicoob.jpg"
         self.especie_documento = 'DM'
         self.label_cedente = 'Coop Contr/Cód Beneficiário'
+        self.local_pagamento = 'Pagável Preferencialmente nas Cooperativas ' +\
+            'da Rede Sicoob ou Qualquer Banco até o Vencimento.'
 
     @property
     def modalidade(self):
