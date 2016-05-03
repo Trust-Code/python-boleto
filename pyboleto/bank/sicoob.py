@@ -38,8 +38,8 @@ class BoletoSicoob(BoletoData):
         soma = 0
         for i in range(21):
             soma += int(composto[i]) * int(constante[i])
-        soma = 11 - (soma % 11)
-        return '0' if soma == 1 else soma
+        resto = soma % 11
+        return '0' if (resto == 1 or resto == 0) else 11 - resto
 
     @property
     def agencia_conta_cedente(self):
