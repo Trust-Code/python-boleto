@@ -37,7 +37,7 @@ class BoletoBradesco(BoletoData):
 
     @property
     def dv_nosso_numero(self):
-        resto2 = self.modulo11(self.nosso_numero, 7, 1)
+        resto2 = self.modulo11(self.carteira + self.nosso_numero, 7, 1)
         digito = 11 - resto2
         if digito == 10:
             dv = 'P'

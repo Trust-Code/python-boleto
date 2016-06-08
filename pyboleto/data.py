@@ -170,7 +170,7 @@ class BoletoData(object):
         self._sacado = None
         self._valor = None
         self._valor_documento = None
-        self.label_cedente = 'Agência/Código cedente'
+        self.label_cedente = 'Agência/Código beneficiário'
 
     @property
     def barcode(self):
