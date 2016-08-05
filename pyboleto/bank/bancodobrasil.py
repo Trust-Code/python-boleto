@@ -134,18 +134,18 @@ class BoletoBB(BoletoData):
                                       self.nosso_numero,
                                       self.agencia_cedente,
                                       self.conta_cedente,
-                                      self.carteira)
+                                      self.carteira[:2])
         elif self.format_convenio in (7, 8):
             content = "000000%s%s%s" % (self.convenio,
                                         self.nosso_numero,
-                                        self.carteira)
+                                        self.carteira[:2])
         elif self.format_convenio == 6:
             if self.format_nnumero == 1:
                 content = "%s%s%s%s%s" % (self.convenio,
                                           self.nosso_numero,
                                           self.agencia_cedente,
                                           self.conta_cedente,
-                                          self.carteira)
+                                          self.carteira[:2])
             if self.format_nnumero == 2:
                 content = "%s%s%s" % (self.convenio,
                                       self.nosso_numero,
