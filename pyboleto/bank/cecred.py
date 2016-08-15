@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+
+import re
 from pyboleto.data import BoletoData, CustomProperty
 
 
@@ -29,11 +31,14 @@ class BoletoCecred(BoletoData):
     def codigo_dv_banco(self):
         return self.codigo_banco + '-1'
 
+    def format_nosso_numero(self):
+        return u"%s%s" % (re.sub('[^0-9]', '', self.conta_cedente),
+                          self.nosso_numero)
+
     @property
     def campo_livre(self):
-        content = "%2s%5s%6s%8s%4s" % (self.carteira.zfill(2),
-                                       self.agencia_cedente.zfill(5),
-                                       self.codigo_beneficiario.zfill(6),
-                                       self.nosso_numero.zfill(8),
-                                       '0851')
+        content = "%6s%8s%9s%2s" % (self.codigo_beneficiario.zfill(6),
+                                    re.sub('[^0-9]', '', self.conta_cedente),
+                                    self.nosso_numero.zfill(9),
+                                    self.carteira.zfill(2))
         return content
