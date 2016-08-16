@@ -13,7 +13,7 @@ class BoletoCecred(BoletoData):
     agencia_cedente = CustomProperty('agencia_cedente', 4)
     conta_cedente = CustomProperty('conta_cedente', 6)
     codigo_beneficiario = CustomProperty('codigo_beneficiario', 6)
-    nosso_numero = CustomProperty('nosso_numero', 7)
+    nosso_numero = CustomProperty('nosso_numero', 9)
 
     carteira = CustomProperty('carteira', 1)
 
