@@ -11,6 +11,7 @@ BANCOS_IMPLEMENTADOS = {
     '033': 'santander.BoletoSantander',
     '748': 'sicredi.BoletoSicredi',
     '756': 'sicoob.BoletoSicoob',
+    '0851': 'cecred.BoletoCecred',
 }
 
 
@@ -25,7 +26,7 @@ def get_class_for_codigo(banco_codigo):
     try:
         banco = BANCOS_IMPLEMENTADOS[banco_codigo].split('.')
     except KeyError:
-        raise(BoletoException('Este banco não é suportado.'))
+        raise(BoletoException(u'Este banco não é suportado.'))
 
     mod = __import__('pyboleto.bank.' + banco[0],
                      globals(), locals(), [banco[1]])

@@ -15,9 +15,7 @@ from decimal import Decimal
 
 
 class BoletoException(Exception):
-    """ Exceções para erros no pyboleto"""
-    def __init__(self, message):
-        Exception.__init__(self, message)
+    pass
 
 
 _EPOCH = datetime.date(1997, 10, 7)
@@ -150,7 +148,7 @@ class BoletoData(object):
         self.especie = kwargs.pop('especie', "R$")
         self.especie_documento = kwargs.pop('especie_documento', "")
         self.local_pagamento = kwargs.pop(
-            'local_pagamento', "Pagável em qualquer banco até o vencimento")
+            'local_pagamento', u"Pagável em qualquer banco até o vencimento")
         self.logo_image = kwargs.pop('logo_image', "")
         self.moeda = kwargs.pop('moeda', "9")
         self.numero_documento = kwargs.pop('numero_do_documento', "")
@@ -163,14 +161,14 @@ class BoletoData(object):
         self.sacado_bairro = kwargs.pop('sacado_bairro', "")
         self.sacado_cep = kwargs.pop('sacado_cep', "")
         if kwargs:
-            raise TypeError("Paramêtro(s) desconhecido: %r" % (kwargs, ))
+            raise TypeError(u"Paramêtro(s) desconhecido: %r" % (kwargs, ))
         self._cedente_endereco = None
         self._demonstrativo = []
         self._instrucoes = []
         self._sacado = None
         self._valor = None
         self._valor_documento = None
-        self.label_cedente = 'Agência/Código beneficiário'
+        self.label_cedente = u'Agência/Código beneficiário'
 
     @property
     def barcode(self):
@@ -302,7 +300,7 @@ class BoletoData(object):
                 u'Linha de endereço possui mais que 80 caracteres')
         self._cedente_endereco = endereco
     cedente_endereco = property(_cedente_endereco_get, _cedente_endereco_set)
-    """Endereço do Cedente com no máximo 80 caracteres"""
+    u"""Endereço do Cedente com no máximo 80 caracteres"""
 
     def _get_valor(self):
         if self._valor is not None:
@@ -438,7 +436,7 @@ class BoletoData(object):
         """
         linha = self.barcode
         if not linha:
-            raise BoletoException("Boleto doesn't have a barcode")
+            raise BoletoException(u"Boleto doesn't have a barcode")
 
         def monta_campo(campo):
             campo_dv = "%s%s" % (campo, self.modulo10(campo))
