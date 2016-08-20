@@ -27,6 +27,8 @@ class BoletoBradesco(BoletoData):
         self.codigo_banco = "237"
         self.logo_image = "logo_bancobradesco.jpg"
         self.carteira = '06'
+        self.local_pagamento = 'Pagável Preferencialmente ' +\
+            'na Rede Bradesco ou Bradesco Expresso.'
 
     def format_nosso_numero(self):
         return "%s/%s-%s" % (
@@ -50,8 +52,8 @@ class BoletoBradesco(BoletoData):
     @property
     def campo_livre(self):
         content = "%4s%2s%11s%7s%1s" % (self.agencia_cedente.split('-')[0],
-                                        self.carteira,
-                                        self.nosso_numero,
+                                        self.carteira.zfill(2),
+                                        self.nosso_numero.zfill(11),
                                         self.conta_cedente.split('-')[0],
                                         '0'
                                         )
