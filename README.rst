@@ -1,14 +1,17 @@
 ========
 pyboleto
 ========
-|travis| |pypi|
 
-.. |travis| image:: https://secure.travis-ci.org/eduardocereto/pyboleto.png?branch=master
-   :target: http://travis-ci.org/#!/eduardocereto/pyboleto
-   
-.. |pypi| image:: https://img.shields.io/pypi/v/pyboleto.svg
-    :target: https://pypi.python.org/pypi/pyboleto/
- 
+.. image:: https://travis-ci.org/Trust-Code/python-boleto.svg?branch=master
+    :target: https://travis-ci.org/Trust-Code/python-boleto
+
+.. image:: https://coveralls.io/repos/github/Trust-Code/python-boleto/badge.svg?branch=master
+    :target: https://coveralls.io/github/Trust-Code/python-boleto?branch=master
+
+.. image:: https://landscape.io/github/Trust-Code/python-boleto/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/Trust-Code/python-boleto/master
+   :alt: Code Health
+
 
 .. _pyboleto-synopsis:
 
@@ -56,6 +59,8 @@ For now here's where we are.
  | **Santander**        | 102            | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
  | **Santander**        | 101, 201       | Yes             | No         |
+ +----------------------+----------------+-----------------+------------+
+ | **Sicoob**           | 1              | Yes             | No         |
  +----------------------+----------------+-----------------+------------+
 
 .. _pyboleto-docs:
