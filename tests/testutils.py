@@ -165,6 +165,7 @@ class BoletoTestCase(unittest.TestCase):
                     f.write(g.read())
         return fname
 
+    @unittest.skip("Não Implementado")
     def test_pdf_triplo_rendering(self):
         bank = type(self.dados[0]).__name__
         filename = tempfile.mktemp(prefix="pyboleto-triplo-",
@@ -184,6 +185,7 @@ class BoletoTestCase(unittest.TestCase):
                 bank, diff))
         os.unlink(generated)
 
+    @unittest.skip("Não Implementado")
     def test_pdf_rendering(self):
         dados = self.dados[0]
         bank = type(dados).__name__

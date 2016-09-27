@@ -25,12 +25,14 @@ class TestBancoBrasil(BoletoTestCase):
             self.dados.append(d)
 
     def test_linha_digitavel(self):
-        self.assertEqual(self.dados[0].linha_digitavel,
+        self.assertEqual(
+            self.dados[0].linha_digitavel,
             '00190.00009 07777.777009 00087.654182 6 49000000295295'
         )
 
     def test_codigo_de_barras(self):
-        self.assertEqual(self.dados[0].barcode,
+        self.assertEqual(
+            self.dados[0].barcode,
             '00196490000002952950000007777777000008765418'
         )
 

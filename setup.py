@@ -2,7 +2,6 @@
 
 import os
 import re
-import sys
 
 from setuptools import setup, find_packages
 
@@ -20,15 +19,12 @@ def get_version(package):
                      init_py, re.MULTILINE
                      ).group(1)
 
-
-
-
 setup(
-    name='pyboleto',
+    name='python boleto',
     version=get_version('pyboleto'),
-    author='Eduardo Cereto Carvalho',
-    author_email='eduardocereto@gmail.com',
-    url='https://github.com/eduardocereto/pyboleto',
+    author='Trust-Code',
+    author_email='suporte@trustcode.com.br',
+    url='https://github.com/Trust-Code/python-boleto',
     packages=find_packages(),
     package_data={
         '': ['LICENSE'],

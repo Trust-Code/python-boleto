@@ -56,11 +56,10 @@ class BoletoSicoob(BoletoData):
     @property
     def campo_livre(self):
         content = "%1s%4s%2s%7s%7s%1s%3s" % (self.carteira,
-                                             self.agencia_cedente,
+                                             self.agencia_cedente.strip(),
                                              self.modalidade,
                                              self.codigo_beneficiario,
                                              self.nosso_numero,
                                              self.dv_nosso_numero,
-                                             '001'
-                                             )
+                                             '001')
         return content

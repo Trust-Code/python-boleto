@@ -1,12 +1,20 @@
 language: python
 python:
   - "2.7"
-  - "3.5"
+
 # command to install dependencies
 before_install:
   - sudo apt-get update
   - sudo apt-get install poppler-utils  # For pdftohtml
-#install:
-  #- pip install -r requirements.txt --use-mirrors
+
+virtual_env:
+  system_site_packages: true
+
+install:
+  - pip install --upgrade pip
+  - pip install -r requirements.txt --use-mirrors
 # command to run tests
-script: python setup.py test
+script: coverage run --source=pyboleto setup.py nosetests
+
+after_success:
+  coveralls

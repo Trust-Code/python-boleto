@@ -24,12 +24,14 @@ class TestBancoReal(BoletoTestCase):
             self.dados.append(d)
 
     def test_linha_digitavel(self):
-        self.assertEqual(self.dados[0].linha_digitavel,
+        self.assertEqual(
+            self.dados[0].linha_digitavel,
             '35690.53154 70585.390001 00000.001230 8 48690000035500'
         )
 
     def test_codigo_de_barras(self):
-        self.assertEqual(self.dados[0].barcode,
+        self.assertEqual(
+            self.dados[0].barcode,
             '35698486900000355000531570585390000000000123'
         )
 

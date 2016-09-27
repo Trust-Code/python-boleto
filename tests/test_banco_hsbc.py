@@ -23,12 +23,14 @@ class TestBancoHsbc(BoletoTestCase):
             self.dados.append(d)
 
     def test_linha_digitavel(self):
-        self.assertEqual(self.dados[0].linha_digitavel,
+        self.assertEqual(
+            self.dados[0].linha_digitavel,
             '39993.90309 36010.001018 03120.145929 3 42480000003500'
         )
 
     def test_codigo_de_barras(self):
-        self.assertEqual(self.dados[0].barcode,
+        self.assertEqual(
+            self.dados[0].barcode,
             '39993424800000035003903036010001010312014592'
         )
 
@@ -39,8 +41,9 @@ class TestBancoHsbc(BoletoTestCase):
         self.assertEqual(self.dados[0].conta_cedente, '3903036')
 
     def test_nosso_numero(self):
-        self.assertEqual(self.dados[0].format_nosso_numero(),
-                '0100010103120947')
+        self.assertEqual(
+            self.dados[0].format_nosso_numero(),
+            '0100010103120947')
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestBancoHsbc)
 

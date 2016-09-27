@@ -24,7 +24,8 @@ class TestBancoCaixa(BoletoTestCase):
             self.dados.append(d)
 
     def test_linha_digitavel(self):
-        self.assertEqual(self.dados[0].linha_digitavel,
+        self.assertEqual(
+            self.dados[0].linha_digitavel,
             '10498.01952 25086.156582 70000.004146 1 53880000295295'
         )
 
@@ -32,7 +33,8 @@ class TestBancoCaixa(BoletoTestCase):
         self.assertEqual(len(self.dados[0].barcode), 44)
 
     def test_codigo_de_barras(self):
-        self.assertEqual(self.dados[0].barcode,
+        self.assertEqual(
+            self.dados[0].barcode,
             '10491538800002952958019525086156587000000414'
         )
 
