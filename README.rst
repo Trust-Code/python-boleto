@@ -59,7 +59,7 @@ For now here's where we are.
  +----------------------+----------------+-----------------+------------+
  | **Sicoob**           | 1              | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
- | **Cecred**           | 1              | Yes             | Yes         |
+ | **Cecred**           | 1              | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
 
 .. _pyboleto-docs:
@@ -67,13 +67,6 @@ For now here's where we are.
 Documentation
 =============
 
-http://packages.python.org/pyboleto/
-
-The best way to learn how to create Boletos using pyboleto is to look at the
-examples at `pyboleto_sample.py`_
-
-
-.. _pyboleto_sample.py: https://github.com/eduardocereto/pyboleto/blob/master/bin/pyboleto_sample.py
 
 .. _pyboleto-installation:
 
