@@ -1,5 +1,5 @@
 ========
-pyboleto
+python-boleto - Fork mantido por Trustcode
 ========
 
 .. image:: https://travis-ci.org/Trust-Code/python-boleto.svg?branch=master
@@ -15,19 +15,18 @@ pyboleto
 
 .. _pyboleto-synopsis:
 
-pyboleto provides a python class to generate "boletos de cobranca" as these
-are the Brazilian equivalent for invoices.
+python-boleto é um projeto python para gerar boletos de cobrança.
 
-It's easy to implement classes for new banks.
+O projeto original pode ser encontrado aqui:
+https://github.com/eduardocereto/pyboleto
 
-This class is still in development and currently has no documented API.
 
 .. contents::
     :local:
 
 .. _pyboleto-implemented-bank:
 
-Implemented Banks
+Bancos implementados
 =================
 
 You can help writing code for more banks or printing and testing current
@@ -36,7 +35,7 @@ implementations.
 For now here's where we are.
 
  +----------------------+----------------+-----------------+------------+
- | **Bank**             | **Carteira /** | **Implemented** | **Tested** |
+ | **Banco**            | **Carteira /** | **Implementado**| **Testado**|
  |                      | **Convenio**   |                 |            |
  +======================+================+=================+============+
  | **Banco do Brasil**  | 18             | Yes             | Yes        |
@@ -54,13 +53,13 @@ For now here's where we are.
  | **Itau**             | 175, 174, 178, | Yes             | No         |
  |                      | 104, 109       |                 |            |
  +----------------------+----------------+-----------------+------------+
- | **Real**             | 57             | Yes             | No         |
- +----------------------+----------------+-----------------+------------+
  | **Santander**        | 102            | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
  | **Santander**        | 101, 201       | Yes             | No         |
  +----------------------+----------------+-----------------+------------+
- | **Sicoob**           | 1              | Yes             | No         |
+ | **Sicoob**           | 1              | Yes             | Yes        |
+ +----------------------+----------------+-----------------+------------+
+ | **Cecred**           | 1              | Yes             | Yes         |
  +----------------------+----------------+-----------------+------------+
 
 .. _pyboleto-docs:
@@ -86,11 +85,7 @@ or from source.
 
 To install using pip,::
 
-    $ pip install pyboleto
-
-To install using easy_install,::
-
-    $ easy_install pyboleto
+    $ pip install python-boleto
 
 
 .. _pyboleto-installing-from-source:
@@ -99,12 +94,12 @@ Downloading and installing from source
 --------------------------------------
 
 Download the latest version of pyboleto from
-http://pypi.python.org/pypi/pyboleto/
+http://pypi.python.org/pypi/python-boleto/
 
 You can install it by doing the following,::
 
-    $ tar xvfz pyboleto-0.0.0.tar.gz
-    $ cd pyboleto-0.0.0
+    $ tar xvfz python-boleto-0.0.0.tar.gz
+    $ cd python-boleto-0.0.0
     $ python setup.py build
     # python setup.py install # as root
 
@@ -115,7 +110,7 @@ Using the development version
 
 You can clone the repository by doing the following::
 
-    $ git clone https://github.com/eduardocereto/pyboleto.git
+    $ git clone https://github.com/Trust-Code/python-boleto.git
 
 .. _pyboleto-unittests:
 
