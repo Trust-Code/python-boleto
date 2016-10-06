@@ -59,7 +59,7 @@ class BoletoSicoob(BoletoData):
                                              self.agencia_cedente.strip(),
                                              self.modalidade,
                                              self.codigo_beneficiario,
-                                             self.nosso_numero,
+                                             self.nosso_numero[:7],
                                              self.dv_nosso_numero,
                                              '001')
         return content
