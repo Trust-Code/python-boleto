@@ -39,6 +39,8 @@ class BoletoCecred(BoletoData):
     def campo_livre(self):
         content = "%6s%8s%9s%2s" % (self.codigo_beneficiario.zfill(6),
                                     re.sub('[^0-9]', '', self.conta_cedente),
-                                    self.nosso_numero.zfill(9),
+                                    self.nosso_numero[
+                                        len(
+                                            self.nosso_numero.zfill(9)) - 9:],
                                     self.carteira.zfill(2))
         return content
