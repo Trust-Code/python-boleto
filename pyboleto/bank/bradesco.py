@@ -51,10 +51,11 @@ class BoletoBradesco(BoletoData):
 
     @property
     def campo_livre(self):
-        content = "%4s%2s%11s%7s%1s" % (self.agencia_cedente.split('-')[0],
-                                        self.carteira.zfill(2),
-                                        self.nosso_numero.zfill(11),
-                                        self.conta_cedente.split('-')[0],
-                                        '0'
-                                        )
+        content = '{0:.4}{1:.2}{2:.11}{3:.7}{4:.1}'.format(
+            self.agencia_cedente.split('-')[0],
+            self.carteira.zfill(2),
+            self.nosso_numero.zfill(11),
+            self.conta_cedente.split('-')[0],
+            '0'
+            )
         return content
