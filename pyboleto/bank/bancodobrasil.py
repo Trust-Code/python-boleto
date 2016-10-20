@@ -60,10 +60,8 @@ class BoletoBB(BoletoData):
 
     def format_nosso_numero(self):
         if self.format_convenio == 7:
-            return "%7s%10s" % (
-                self.convenio,
-                self.nosso_numero
-            )
+            return '{:.7}'.format(self.convenio.zfill(7)) + '{:.10}'.format(
+                self.nosso_numero)
         else:
             return "%s%s-%s" % (
                 self.convenio,
@@ -136,7 +134,7 @@ class BoletoBB(BoletoData):
                                       self.conta_cedente,
                                       self.carteira[:2])
         elif self.format_convenio in (7, 8):
-            content = "000000%s%s%s" % (self.convenio,
+            content = "0%s%s%s" % (self.convenio,
                                         self.nosso_numero,
                                         self.carteira[:2])
         elif self.format_convenio == 6:
