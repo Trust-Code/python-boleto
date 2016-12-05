@@ -24,6 +24,8 @@ class BoletoItau(BoletoData):
         self.codigo_banco = "341"
         self.logo_image = "logo_itau.jpg"
         self.especie_documento = 'DM'
+        self.local_pagamento = u'Até o vencimento, preferencialmente no Itaú. ' +\
+                'Após o vencimento, somente no Itaú '
 
     @property
     def dv_nosso_numero(self):
