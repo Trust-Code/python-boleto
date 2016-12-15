@@ -1,20 +1,20 @@
 language: python
 python:
-  - "2.7"
-
-# command to install dependencies
+- '2.7'
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install poppler-utils  # For pdftohtml
-
+- sudo apt-get update
+- sudo apt-get install poppler-utils
 virtual_env:
   system_site_packages: true
-
 install:
-  - pip install --upgrade pip
-  - pip install -r requirements.txt
-# command to run tests
+- pip install --upgrade pip
+- pip install -r requirements.txt
 script: coverage run --source=pyboleto setup.py nosetests
-
-after_success:
-  coveralls
+after_success: coveralls
+deploy:
+  provider: pypi
+  user: trustcode
+  on:
+    branch: master
+  password:
+    secure: od11H5cpJ1FjKHE0PwjoMnvuaH40tu+l2WzxV0ehtxgBg4QssFYCF8XbeEb/IaxcvE5xETzMJy5vw63D8HUeLbGZoR2/G2QT9vhl9GLXi+1jZtGluot3jc/nC04l+cK5s4enwbX/xmy5zRcIzhs+6SMWSSY3I6/UjK4gIvw+31281aX6DpbU+s87opvPggM0OYea4Ks4ZG/IhzoBe9FfyLFm8Lkw13VcKruW/4AIFpwV3ajfhmWtOQ0CeQQjnB+f5jCoJajX5154aVv0uFiFJRqp4aMQ3ivzAJ31uY7zBu4//9InKWWSXeKha7Wr9Xcj7NNICW6DJ6h854LozXLPpBYgBpJmhA1uIr6XFgKjbt7CRJJKdd7+l5XS2z9tGTBBnexgFntYgyRYAIGDrSLEWScdTqbE22k5hUL22hxB+A4H3HTD/QuShVMtZAPwfqunsNFybz7dsfuaoVYZKqZuWkkORjpFagZQq0Jt1M38KdrNqQpfiAI1iu0pgNqW997jqZpW18PZXSEYsZOELRrAXeTe4FX5c8acZrUgTS2mUHs33tyTm7RfjVONPRku/y+vNQKtUlEgKpYj/sUx7gOtIa5DlVxktNJMA+oQqP1+7DkUId0p7bFfp336YzIob2VJZWGUY4dAvcUn5yygkRe4e5cAThXLfQRaSpqq9BoCU94=
