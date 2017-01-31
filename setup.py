@@ -28,7 +28,7 @@ setup(
     packages=find_packages(),
     package_data={
         '': ['LICENSE'],
-        'pyboleto': ['media/*.jpg', 'templates/*.html'],
+        'pyboleto': ['media/*.jpg', 'media/*.png', 'templates/*.html'],
         'tests': ['xml/*.xml']
     },
     zip_safe=False,
