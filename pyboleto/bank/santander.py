@@ -61,3 +61,7 @@ class BoletoSantander(BoletoData):
                            self.carteira,
                            ])
         return content
+
+    @property
+    def agencia_conta_cedente(self):
+        return "%s/%s" % (self.agencia_cedente, self.codigo_beneficiario)
