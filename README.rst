@@ -12,6 +12,9 @@ python-boleto - Fork mantido por Trustcode
    :target: https://landscape.io/github/Trust-Code/python-boleto/master
    :alt: Code Health
 
+.. image:: https://badge.fury.io/py/python-boleto.svg
+  :target: https://badge.fury.io/py/python-boleto
+
 
 .. _pyboleto-synopsis:
 
