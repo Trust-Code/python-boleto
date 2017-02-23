@@ -55,7 +55,7 @@ class BoletoSantander(BoletoData):
     def campo_livre(self):
         content = "".join([
             '9',
-            self.conta_cedente,
+            self.conta_cedente[-7:],
             self.nosso_numero,
             self._dv_nosso_numero(),
             self.ios,
@@ -65,4 +65,4 @@ class BoletoSantander(BoletoData):
 
     @property
     def agencia_conta_cedente(self):
-        return "%s/%s" % (self.agencia_cedente, self.codigo_beneficiario)
+        return "%s/%s" % (self.agencia_cedente, self.conta_cedente[-7:])
