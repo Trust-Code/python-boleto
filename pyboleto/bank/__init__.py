@@ -26,7 +26,7 @@ def get_class_for_codigo(banco_codigo):
     try:
         banco = BANCOS_IMPLEMENTADOS[banco_codigo].split('.')
     except KeyError:
-        raise(BoletoException(u'Este banco não é suportado.'))
+        raise BoletoException
 
     mod = __import__('pyboleto.bank.' + banco[0],
                      globals(), locals(), [banco[1]])

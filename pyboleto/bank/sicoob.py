@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from builtins import range
 from pyboleto.data import BoletoData, CustomProperty
 
 

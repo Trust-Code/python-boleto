@@ -9,6 +9,10 @@
     :license: BSD, see LICENSE for more details.
 
 """
+from __future__ import division
+from builtins import range
+from builtins import object
+from past.utils import old_div
 import os
 
 from reportlab.graphics.barcode.common import I2of5
@@ -877,7 +881,7 @@ class BoletoPDF(object):
 
         # Recalcula o tamanho do thin_bar para que o cod de barras tenha o
         # comprimento correto
-        thin_bar = (thin_bar * comprimento) / bc.width
+        thin_bar = old_div((thin_bar * comprimento), bc.width)
         bc.__init__(num, barWidth=thin_bar)
 
         bc.drawOn(self.pdf_canvas, x, y)

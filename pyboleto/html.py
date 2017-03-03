@@ -9,6 +9,8 @@
     :license: BSD, see LICENSE for more details.
 
 """
+from builtins import zip
+from builtins import object
 import os
 import string
 import sys
@@ -17,7 +19,7 @@ import base64
 
 from itertools import chain
 if sys.version_info < (3,):
-    from itertools import izip_longest as zip_longest
+    from itertools import zip_longest as zip_longest
     zip_longest  # chamando para evitar erro de nao uso do zip_longest
 else:
     from itertools import zip_longest
@@ -155,7 +157,7 @@ class BoletoHTML(object):
         tpl_data['data_vencimento'] = data_vencimento.strftime('%d/%m/%Y')
 
         # value em unicode em data.py
-        if isinstance(boletoDados.local_pagamento, unicode):
+        if isinstance(boletoDados.local_pagamento, str):
             tpl_data['local_pagamento'] = boletoDados.local_pagamento.encode
             ('utf-8')
         else:
@@ -257,8 +259,8 @@ class BoletoHTML(object):
 
         for digt1, digt2 in self._grouper(2, code):
             digt1_repr = DIGITS[int(digt1)]
-            digt2_repr = map(lambda x: x + ' s', DIGITS[int(digt2)])
-            digits.extend(chain(*zip(digt1_repr, digt2_repr)))
+            digt2_repr = [x + ' s' for x in DIGITS[int(digt2)]]
+            digits.extend(chain(*list(zip(digt1_repr, digt2_repr))))
 
         digits.extend(['w', 'n s', 'n'])
 
