@@ -66,12 +66,4 @@ setup(
         'distribute',
         'reportlab'
     ],
-    tests_require=[
-        'pylint',
-        'tox',
-        'coverage',
-        'pep8',
-        'sphinx-pypi-upload',
-        'sphinx'
-    ]
 )
