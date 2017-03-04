@@ -14,6 +14,7 @@
     :license: BSD, see LICENSE for more details.
 
 """
+from builtins import str
 from pyboleto.data import BoletoData, CustomProperty
 
 

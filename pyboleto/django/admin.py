@@ -1,5 +1,7 @@
+from future import standard_library
+standard_library.install_aliases()
 # -*- coding: utf-8 -*-
-from StringIO import StringIO
+from io import StringIO
 from datetime import date
 
 from django.http import HttpResponse

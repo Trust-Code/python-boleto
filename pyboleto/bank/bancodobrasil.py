@@ -2,7 +2,7 @@
 """
     Boleto for Banco do Brasil
 """
-# -*- coding: utf-8 -*-
+from builtins import str
 from pyboleto.data import BoletoData, CustomProperty
 
 '''

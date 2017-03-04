@@ -10,6 +10,9 @@
     :license: BSD, see LICENSE for more details.
 
 """
+from builtins import str
+from past.builtins import basestring
+from builtins import object
 import datetime
 from decimal import Decimal
 
