@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-from pyboleto.data import BoletoData, custom_property
+from pyboleto.data import BoletoData, CustomProperty
 
 
 class BoletoSicredi(BoletoData):
     '''
         Gera Dados necessários para criação de boleto para o Banco Sicredi
     '''
-    agencia_cedente = custom_property('agencia_cedente', 4)
-    conta_cedente = custom_property('conta_cedente', 8)
-    posto = custom_property('posto', 2)
-    convenio = custom_property('convenio', 4)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 8)
+    posto = CustomProperty('posto', 2)
+    convenio = CustomProperty('convenio', 4)
     # Nosso numero (sem dv) com 8 digitos
-    nosso_numero = custom_property('nosso_numero', 8)
+    nosso_numero = CustomProperty('nosso_numero', 8)
 
     def __init__(self):
         '''
