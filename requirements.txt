@@ -1,3 +1,4 @@
-nose
 coveralls
 reportlab
+pytest
+pytest-cov

@@ -11,8 +11,10 @@ virtual_env:
 install:
 - pip install --upgrade pip
 - pip install -r requirements.txt
-script: coverage run setup.py test
-after_success: coveralls
+script:
+  pytest --cov=cnab240
+after_success:
+  coveralls
 deploy:
   provider: pypi
   user: trustcode
