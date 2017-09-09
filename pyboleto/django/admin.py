@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from StringIO import StringIO
+from io import StringIO
 from datetime import date
 
 from django.http import HttpResponse
@@ -23,13 +23,13 @@ def print_boletos(modeladmin, request, queryset):
 
     response = HttpResponse()
     response['Content-Disposition'] = 'attachment; filename=%s' % (
-        u'boletos_%s.pdf' % (
+        'boletos_%s.pdf' % (
             date.today().strftime('%Y%m%d'),
         ),
     )
     response.write(pdf_file)
     return response
-print_boletos.short_description = u'Imprimir Boletos Selecionados'
+print_boletos.short_description = 'Imprimir Boletos Selecionados'
 
 
 class BoletoAdmin(admin.ModelAdmin):

@@ -15,9 +15,9 @@ class TestBancoSicoob(BoletoTestCase):
         d.agencia_cedente = '3069'
         d.conta_cedente = '84725'
         d.codigo_beneficiario = '225'
-        d.data_vencimento = datetime.date(2016, 05, 6)
-        d.data_documento = datetime.date(2016, 04, 8)
-        d.data_processamento = datetime.date(2016, 04, 8)
+        d.data_vencimento = datetime.date(2016, 5, 6)
+        d.data_documento = datetime.date(2016, 4, 8)
+        d.data_processamento = datetime.date(2016, 4, 8)
         d.valor_documento = 97.50
         d.nosso_numero = '3'
         d.numero_documento = '1212/1'

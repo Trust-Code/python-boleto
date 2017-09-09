@@ -148,7 +148,7 @@ class BoletoData(object):
         self.especie = kwargs.pop('especie', "R$")
         self.especie_documento = kwargs.pop('especie_documento', "")
         self.local_pagamento = kwargs.pop(
-            'local_pagamento', u"Pagável em qualquer banco até o vencimento")
+            'local_pagamento', "Pagável em qualquer banco até o vencimento")
         self.logo_image = kwargs.pop('logo_image', "")
         self.moeda = kwargs.pop('moeda', "9")
         self.numero_documento = kwargs.pop('numero_do_documento', "")
@@ -161,14 +161,14 @@ class BoletoData(object):
         self.sacado_bairro = kwargs.pop('sacado_bairro', "")
         self.sacado_cep = kwargs.pop('sacado_cep', "")
         if kwargs:
-            raise TypeError(u"Paramêtro(s) desconhecido: %r" % (kwargs, ))
+            raise TypeError("Paramêtro(s) desconhecido: %r" % (kwargs, ))
         self._cedente_endereco = None
         self._demonstrativo = []
         self._instrucoes = []
         self._sacado = None
         self._valor = None
         self._valor_documento = None
-        self.label_cedente = u'Agência/Código beneficiário'
+        self.label_cedente = 'Agência/Código beneficiário'
 
     @property
     def barcode(self):
@@ -187,17 +187,17 @@ class BoletoData(object):
         """
 
         for attr, length, data_type in [
-                ('codigo_banco', 3, basestring),
-                ('moeda', 1, basestring),
+                ('codigo_banco', 3, str),
+                ('moeda', 1, str),
                 ('data_vencimento', None, datetime.date),
-                ('valor_documento', -1, basestring),
-                ('campo_livre', 25, basestring)]:
+                ('valor_documento', -1, str),
+                ('campo_livre', 25, str)]:
             value = getattr(self, attr)
             if not isinstance(value, data_type):
                 raise TypeError("%s.%s must be a %s, got %r (type %s)" % (
                     self.__class__.__name__, attr, data_type.__name__, value,
                     type(value).__name__))
-            if (data_type == basestring and
+            if (data_type == str and
                     length != -1 and
                     len(value) != length):
                 raise ValueError(
@@ -297,10 +297,10 @@ class BoletoData(object):
     def _cedente_endereco_set(self, endereco):
         if len(endereco) > 80:
             raise BoletoException(
-                u'Linha de endereço possui mais que 80 caracteres')
+                'Linha de endereço possui mais que 80 caracteres')
         self._cedente_endereco = endereco
     cedente_endereco = property(_cedente_endereco_get, _cedente_endereco_set)
-    u"""Endereço do Cedente com no máximo 80 caracteres"""
+    """Endereço do Cedente com no máximo 80 caracteres"""
 
     def _get_valor(self):
         if self._valor is not None:
@@ -341,16 +341,16 @@ class BoletoData(object):
         return self._instrucoes
 
     def _instrucoes_set(self, list_inst):
-        if isinstance(list_inst, basestring):
+        if isinstance(list_inst, str):
             list_inst = list_inst.splitlines()
 
         if len(list_inst) > 7:
             raise BoletoException(
-                u'Número de linhas de instruções maior que 7')
+                'Número de linhas de instruções maior que 7')
         for line in list_inst:
             if len(line) > 90:
                 raise BoletoException(
-                    u'Linha de instruções possui mais que 90 caracteres')
+                    'Linha de instruções possui mais que 90 caracteres')
         self._instrucoes = list_inst
     instrucoes = property(_instrucoes_get, _instrucoes_set)
     """Instruções para o caixa do banco que recebe o bilhete
@@ -365,16 +365,16 @@ class BoletoData(object):
         return self._demonstrativo
 
     def _demonstrativo_set(self, list_dem):
-        if isinstance(list_dem, basestring):
+        if isinstance(list_dem, str):
             list_dem = list_dem.splitlines()
 
         if len(list_dem) > 12:
             raise BoletoException(
-                u'Número de linhas de demonstrativo maior que 12')
+                'Número de linhas de demonstrativo maior que 12')
         for line in list_dem:
             if len(line) > 90:
                 raise BoletoException(
-                    u'Linha de demonstrativo possui mais que 90 caracteres')
+                    'Linha de demonstrativo possui mais que 90 caracteres')
         self._demonstrativo = list_dem
     demonstrativo = property(_demonstrativo_get, _demonstrativo_set)
     """Texto que vai impresso no corpo do Recibo do Sacado
@@ -408,7 +408,7 @@ class BoletoData(object):
 
     def _sacado_set(self, list_sacado):
         if len(list_sacado) > 3:
-            raise BoletoException(u'Número de linhas do sacado maior que 3')
+            raise BoletoException('Número de linhas do sacado maior que 3')
         self._sacado = list_sacado
     sacado = property(_sacado_get, _sacado_set)
     """Campo sacado composto por até 3 linhas.
@@ -436,7 +436,7 @@ class BoletoData(object):
         """
         linha = self.barcode
         if not linha:
-            raise BoletoException(u"Boleto doesn't have a barcode")
+            raise BoletoException("Boleto doesn't have a barcode")
 
         def monta_campo(campo):
             campo_dv = "%s%s" % (campo, self.modulo10(campo))
@@ -450,7 +450,7 @@ class BoletoData(object):
 
     @staticmethod
     def modulo10(num):
-        if not isinstance(num, basestring):
+        if not isinstance(num, str):
             raise TypeError
         soma = 0
         peso = 2
@@ -475,7 +475,7 @@ class BoletoData(object):
 
     @staticmethod
     def modulo11(num, base=9, r=0):
-        if not isinstance(num, basestring):
+        if not isinstance(num, str):
             raise TypeError
         soma = 0
         fator = 2

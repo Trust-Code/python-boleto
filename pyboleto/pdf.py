@@ -349,7 +349,7 @@ class BoletoPDF(object):
                            ) > 8.4 * cm):
 
             # sacado0 = sacado0[:-2] + u'\u2026'
-            sacado0 = sacado0[:-4] + u'...'
+            sacado0 = sacado0[:-4] + '...'
 
         self.pdf_canvas.drawString(
             0 + self.space,
@@ -687,7 +687,7 @@ class BoletoPDF(object):
         )
 
         self.pdf_canvas.setFont('Helvetica', self.font_size_value)
-        beneficiario = u'{} - CPF/CNPJ: {}'.format(
+        beneficiario = '{} - CPF/CNPJ: {}'.format(
             boleto_dados.cedente, boleto_dados.cedente_documento)
         self.pdf_canvas.drawString(0, y + self.space + 10, beneficiario)
         self.pdf_canvas.drawString(0, y + self.space,

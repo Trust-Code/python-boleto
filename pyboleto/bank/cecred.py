@@ -23,16 +23,16 @@ class BoletoCecred(BoletoData):
         self.codigo_banco = "085"
         self.logo_image = "logo_cecred.jpg"
         self.especie_documento = 'DM'
-        self.label_cedente = u'Agência/Código Beneficiário'
-        self.local_pagamento = u'Pagável Preferencialmente nas Cooperativas '\
-            u'do sistema Cecred. Após venc. somente na cooperativa'
+        self.label_cedente = 'Agência/Código Beneficiário'
+        self.local_pagamento = 'Pagável Preferencialmente nas Cooperativas '\
+            'do sistema Cecred. Após venc. somente na cooperativa'
 
     @property
     def codigo_dv_banco(self):
         return self.codigo_banco + '-1'
 
     def format_nosso_numero(self):
-        return u"%s%s" % (re.sub('[^0-9]', '', self.conta_cedente),
+        return "%s%s" % (re.sub('[^0-9]', '', self.conta_cedente),
                           self.nosso_numero)
 
     @property
