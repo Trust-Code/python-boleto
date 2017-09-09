@@ -20,7 +20,7 @@ def get_version(package):
                      ).group(1)
 
 setup(
-    name='python boleto',
+    name='python-boleto3',
     version=get_version('pyboleto'),
     author='Trust-Code',
     author_email='suporte@trustcode.com.br',
@@ -53,9 +53,9 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Natural Language :: Portuguese (Brazilian)',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.4',
         'Topic :: Office/Business :: Financial',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Framework :: Django',
