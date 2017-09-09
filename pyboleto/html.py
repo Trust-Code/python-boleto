@@ -97,7 +97,7 @@ class BoletoHTML(object):
         # Cabeçalho
         tpl_data['logo_img'] = ''
         if boletoDados.logo_image:
-            img = codecs.open(self._load_image(boletoDados.logo_image))
+            img = codecs.open(self._load_image(boletoDados.logo_image), mode='rb')
             aux = img.read()
             aux = base64.b64encode(aux)
             img_base64 = 'data:image/jpeg;base64,{0}'.format(aux)
@@ -156,8 +156,7 @@ class BoletoHTML(object):
 
         # value em unicode em data.py
         if isinstance(boletoDados.local_pagamento, str):
-            tpl_data['local_pagamento'] = boletoDados.local_pagamento.encode
-            ('utf-8')
+            tpl_data['local_pagamento'] = boletoDados.local_pagamento.encode('utf-8')
         else:
             tpl_data['local_pagamento'] = boletoDados.local_pagamento
         tpl_data['cedente'] = boletoDados.cedente

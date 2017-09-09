@@ -13,15 +13,8 @@ import unittest
 from xml.etree.ElementTree import fromstring, tostring
 
 import pyboleto
-
-
-try:
-    from pyboleto.pdf import BoletoPDF
-except ImportError as err:
-    if sys.version_info >= (3,):
-        pass  # Reportlab doesn;t support Python3
-    else:
-        raise(err)
+from pyboleto.pdf import BoletoPDF
+from pyboleto.html import BoletoHTML
 
 
 def list_recursively(directory, pattern):
@@ -156,9 +149,9 @@ def pdftoxml(filename, output):
 
 
 class BoletoTestCase(unittest.TestCase):
-    def _get_expected(self, bank, generated):
+    def _get_expected(self, bank, generated, f_type='xml'):
         fname = os.path.join(os.path.dirname(pyboleto.__file__),
-                             "..", "tests", "xml", bank + '-expected.xml')
+                             "..", "tests", f_type, bank + '-expected.' + f_type)
         if not os.path.exists(fname):
             with open(fname, 'wb') as f:
                 with open(generated) as g:
@@ -205,6 +198,27 @@ class BoletoTestCase(unittest.TestCase):
         diff = diff_pdf_htmls(expected, generated)
         os.unlink(generated)
         os.unlink(filename)
+        if diff:
+            self.fail("Error while checking xml for %r:\n%s" % (
+                bank, diff))
+
+
+    def test_html_rendering(self):
+        if "dados" not in dir(self):
+            return
+        dados = self.dados[0]
+        bank = type(dados).__name__
+        filename = tempfile.mktemp(prefix="pyboleto-",
+                                   suffix=".html")
+        boleto = BoletoHTML(filename, False)
+        boleto.drawBoleto(dados)
+        boleto.nextPage()
+        boleto.save()
+
+        generated = filename
+        expected = self._get_expected(bank, generated, f_type='html')
+        diff = diff_files(expected, generated)
+        os.unlink(generated)
         if diff:
             self.fail("Error while checking xml for %r:\n%s" % (
                 bank, diff))

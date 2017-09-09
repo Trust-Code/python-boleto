@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Boleto bancário</title>
+      <meta charset="utf-8" />
+      <style>
+        html,body {margin:0;padding:0}
+        hr {border:1px dashed #000}
+        p {margin:0}
+        table {table-layout:fixed}
+        table td {overflow:hidden;white-space: nowrap}
+        .pagina {width:750px;font-family:Helvetica, Arial, "Lucida Grande", sans-serif;font-size:12px;margin:40px auto;}
+        .recibo-sacado {margin-bottom:50px}
+        .demonstrativo {height:190px}
+        .demonstrativo-content,.instrucoes-content {padding:3px}
+        .autenticacao-mecanica {height:80px}
+        .recibo-caixa {margin-top:30px}
+        .cabecalho td {border-bottom:4px solid #000;vertical-align:bottom;padding:0}
+        .cabecalho td.banco-logo {width:170px}
+        .cabecalho td.banco-logo img {float:left;margin:0;padding:0}
+        .cabecalho td.banco-codigo {width:70px;font-size:22px;font-weight:700;text-align:center}
+        .cabecalho td.bol-linha-digitavel {border-right:none;text-align:right;font-size:16px;font-weight:700}
+        .cabecalho .linhas-v {border-left:3px solid #000;border-right:3px solid #000}
+        .corpo td {border-bottom:1px solid #000;border-right:1px solid #000;vertical-align:top;height:27px;padding:0 2px}
+        .corpo td.linha-vazia {border-bottom:none}
+        .recibo-sacado .corpo tr td:last-child {border-right:none;text-align:left}
+        .recibo-caixa .corpo tr td:last-child {border-right:none;text-align:right;width:140px}
+        .rodape td {border:none;vertical-align:top;padding-left:2px}
+        .rodape td.bol-codigo-barras {padding:8px 6px}
+        .rotulo {text-align:left;font-size:9px;margin-bottom:2px}
+        .autenticacao-mecanica .rotulo {text-align:right}
+        tr.linha-grossa td, td.linha-grossa {border-bottom:3px solid #000}
+        .recibo-sacado .corpo .col-cedente-agencia,.recibo-sacado .corpo .col-cedente-documento {width:130px}
+        .recibo-sacado .corpo .col-vencimento {width:100px}
+        .recibo-caixa .corpo .col-data-documento {width:120px}
+        .recibo-caixa .corpo .col-numero-documento {width:140px}
+        .recibo-caixa .rodape .col-sacado {width:40px}
+        .recibo-caixa .rodape .col-codigo-baixa {width:210px}
+        .cabecalho,.corpo,.rodape {width:100%;border-collapse:collapse}
+        .recibo-caixa .corpo .col-especie-documento,.recibo-caixa .corpo .col-aceite {width:70px}
+        .bol-codigo-barras {height:40px}
+        #barcode {height: 60px}
+        #barcode span {margin: 0;padding-bottom: 34px;height: 16px}
+        .n {border-left: 1px solid}
+        .w {border-left: 3px solid}
+        .n, .w {border-color: #000}
+        .s {border-color: #fff}
+        /* @media print{ .pagina {page-break-after:always} } */
+      </style>
+    </head>
+    <body>
+      <div class="pagina">
+<div class="recibo-sacado">
+  <table class="cabecalho">
+    <tbody>
+      <tr>
+        <td class="banco-logo">
+          <img src="data:image/jpeg;base64,b'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'" alt="Logo do banco" />
+        </td>
+        <td class="banco-codigo">
+          <div class="linhas-v">237-2</div>
+        </td>
+        <td class="bol-linha-digitavel">Recibo do Sacado</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="corpo">
+    <tbody>
+      <tr>
+        <td>
+          <div class="rotulo">Cedente</div>
+          
+        </td>
+        <td class="col-cedente-agencia">
+          <div class="rotulo">Agência/Código Cedente</div>
+          0278-0/0039232-4
+        </td>
+        <td class="col-cedente-documento">
+          <div class="rotulo">CPF/CNPJ Cedente</div> 
+        </td>
+        <td class="col-vencimento">
+          <div class="rotulo">Vencimento</div> 05/02/2011
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="rotulo">Sacado</div>  - CPF/CNPJ: 
+        </td>
+        <td>
+          <div class="rotulo">Nosso Número</div> 06/00002125525-6
+        </td>
+        <td>
+          <div class="rotulo">N. do documento</div> 2125525
+        </td>
+        <td>
+          <div class="rotulo">Data Documento</div> 18/01/2011
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <div class="rotulo">Endereço Cedente</div>  -  -  -  - 
+        </td>
+        <td width="100px" class="col-dir">
+          <div class="rotulo">Valor Documento</div> 8280,00
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="demonstrativo">
+  <div class="rotulo">Demonstrativo</div>
+  <div class="demonstrativo-content"></div>
+</div>
+<div class="autenticacao-mecanica">
+  <div class="rotulo">Autenticação Mecânica</div>
+</div>
+<hr /><div class="recibo-caixa">
+  <table class="cabecalho">
+    <tbody>
+      <tr>
+        <td class="banco-logo">
+          <img src="/home/danimar/projetos/python-boleto/pyboleto/media/logo_bancobradesco.jpg" alt="Logo do banco" />
+        </td>
+        <td class="banco-codigo">
+          <div class="linhas-v">237-2</div>
+        </td>
+        <td class="bol-linha-digitavel">23790.27804 60000.212559 25003.923205 4 48690000828000</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="corpo">
+    <tbody>
+      <tr>
+        <td colspan="6">
+          <div class="rotulo">Local de pagamento</div> b'Pag\xc3\xa1vel Preferencialmente na Rede Bradesco ou Bradesco Expresso.'
+        </td>
+        <td>
+          <div class="rotulo">Vencimento</div> 05/02/2011
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6">
+          <div class="rotulo">Cedente</div> 
+        </td>
+        <td>
+          <div class="rotulo">Agência/Código cedente</div>
+          0278-0/0039232-4
+        </td>
+      </tr>
+      <tr>
+        <td class="col-data-documento">
+          <div class="rotulo">Data do documento</div> 18/01/2011
+        </td>
+        <td class="col-numero-documento" colspan="2">
+          <div class="rotulo">N. do documento</div> 2125525
+        </td>
+        <td class="col-especie-documento">
+          <div class="rotulo">Espécie doc</div> 
+        </td>
+        <td class="col-aceite">
+          <div class="rotulo">Aceite</div> N
+        </td>
+        <td>
+          <div class="rotulo">Data processamento</div> 18/01/2011
+        </td>
+        <td>
+          <div class="rotulo">Nosso número</div> 06/00002125525-6
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="rotulo">Uso do banco</div>
+        </td>
+        <td>
+          <div class="rotulo">Carteira</div> 06
+        </td>
+        <td>
+          <div class="rotulo">Espécie</div> R$
+        </td>
+        <td colspan="2">
+          <div class="rotulo">Quantidade</div> 
+        </td>
+        <td>
+          <div class="rotulo">Valor</div> 
+        </td>
+        <td>
+          <div class="rotulo">(=) Valor documento</div> 8280,00
+        </td>
+      </tr>
+      <tr>
+        <td colspan="6" rowspan="5" class="linha-grossa">
+          <div class="rotulo">Instruções
+          (Todas as informações deste bloqueto são de exclusiva
+           responsabilidade do cedente)</div>
+           <div class="instrucoes-content"></div>
+        </td>
+        <td>
+          <div class="rotulo">(-) Descontos/Abatimentos</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="rotulo">(-) Outras deduções</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="rotulo">(+) Mora/Multa</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="rotulo">(+) Outros acréscimos</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="linha-grossa">
+          <div class="rotulo">(=) Valor cobrado</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="rodape">
+    <tbody>
+      <tr>
+        <td class="col-sacado"><div class="rotulo">Sacado</div></td>
+        <td colspan="3"><p> - CPF/CNPJ: </p><p></p><p> -  -  - </p></td>
+      </tr>
+      <tr class="linha-grossa">
+        <td colspan="3">
+          <div class="rotulo">Sacador / Avalista</div>
+        </td>
+        <td class="col-codigo-baixa">
+          <div class="rotulo">Código de baixa</div>
+        </td>
+      </tr>
+      <tr>
+      <td colspan="3" class="bol-codigo-barras">
+         <div id="barcode"><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="w s"></span><span class="n"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span><span class="w s"></span><span class="n"></span><span class="w s"></span><span class="w"></span><span class="n s"></span><span class="w"></span><span class="n s"></span><span class="n"></span></div>
+      </td>
+      <td>
+        <div class="rotulo">Autenticação Mecânica / Ficha de Compensação</div>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr /></div><div class="pagina"></div></body></html>
