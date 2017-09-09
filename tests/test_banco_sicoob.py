@@ -10,17 +10,18 @@ from .testutils import BoletoTestCase
 class TestBancoSicoob(BoletoTestCase):
     def setUp(self):
         self.dados = []
-        d = BoletoSicoob()
-        d.carteira = '1'
-        d.agencia_cedente = '3069'
-        d.conta_cedente = '84725'
-        d.codigo_beneficiario = '225'
-        d.data_vencimento = datetime.date(2016, 5, 6)
-        d.data_documento = datetime.date(2016, 4, 8)
-        d.data_processamento = datetime.date(2016, 4, 8)
-        d.valor_documento = 97.50
-        d.nosso_numero = '3'
-        d.numero_documento = '1212/1'
+        for i in range(3):
+            d = BoletoSicoob()
+            d.carteira = '1'
+            d.agencia_cedente = '3069'
+            d.conta_cedente = '84725'
+            d.codigo_beneficiario = '225'
+            d.data_vencimento = datetime.date(2016, 5, 6)
+            d.data_documento = datetime.date(2016, 4, 8)
+            d.data_processamento = datetime.date(2016, 4, 8)
+            d.valor_documento = 97.50
+            d.nosso_numero = '3'
+            d.numero_documento = '1212/1'
         self.dados.append(d)
 
     @unittest.skip("Não Implementado")

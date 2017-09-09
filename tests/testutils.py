@@ -165,8 +165,9 @@ class BoletoTestCase(unittest.TestCase):
                     f.write(g.read())
         return fname
 
-    @unittest.skip("Não Implementado")
     def test_pdf_triplo_rendering(self):
+        if "dados" not in dir(self):
+            return
         bank = type(self.dados[0]).__name__
         filename = tempfile.mktemp(prefix="pyboleto-triplo-",
                                    suffix=".pdf")
@@ -180,13 +181,15 @@ class BoletoTestCase(unittest.TestCase):
         pdftoxml(filename, generated)
         expected = self._get_expected('Triplo-' + bank, generated)
         diff = diff_pdf_htmls(expected, generated)
+        os.unlink(generated)
+        os.unlink(filename)
         if diff:
             self.fail("Error while checking xml for %r:\n%s" % (
                 bank, diff))
-        os.unlink(generated)
 
-    @unittest.skip("Não Implementado")
     def test_pdf_rendering(self):
+        if "dados" not in dir(self):
+            return
         dados = self.dados[0]
         bank = type(dados).__name__
         filename = tempfile.mktemp(prefix="pyboleto-",
@@ -200,7 +203,8 @@ class BoletoTestCase(unittest.TestCase):
         pdftoxml(filename, generated)
         expected = self._get_expected(bank, generated)
         diff = diff_pdf_htmls(expected, generated)
+        os.unlink(generated)
+        os.unlink(filename)
         if diff:
             self.fail("Error while checking xml for %r:\n%s" % (
                 bank, diff))
-        os.unlink(generated)
