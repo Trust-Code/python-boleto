@@ -20,7 +20,7 @@ def get_version(package):
                      ).group(1)
 
 setup(
-    name='python-boleto3',
+    name='python3-boleto',
     version=get_version('pyboleto'),
     author='Trust-Code',
     author_email='suporte@trustcode.com.br',

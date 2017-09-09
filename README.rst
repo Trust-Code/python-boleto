@@ -2,18 +2,18 @@
 python-boleto - Fork mantido por Trustcode
 ========
 
-.. image:: https://travis-ci.org/Trust-Code/python-boleto.svg?branch=master
+.. image:: https://travis-ci.org/Trust-Code/python-boleto.svg?branch=master3
     :target: https://travis-ci.org/Trust-Code/python-boleto
 
-.. image:: https://coveralls.io/repos/github/Trust-Code/python-boleto/badge.svg?branch=master
-    :target: https://coveralls.io/github/Trust-Code/python-boleto?branch=master
+.. image:: https://coveralls.io/repos/github/Trust-Code/python-boleto/badge.svg?branch=master3
+    :target: https://coveralls.io/github/Trust-Code/python-boleto?branch=master3
 
-.. image:: https://landscape.io/github/Trust-Code/python-boleto/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/Trust-Code/python-boleto/master
+.. image:: https://landscape.io/github/Trust-Code/python-boleto/master3/landscape.svg?style=flat
+   :target: https://landscape.io/github/Trust-Code/python-boleto/master3
    :alt: Code Health
 
-.. image:: https://badge.fury.io/py/python-boleto.svg
-  :target: https://badge.fury.io/py/python-boleto
+.. image:: https://badge.fury.io/py/python3-boleto.svg
+  :target: https://badge.fury.io/py/python3-boleto
 
 
 .. _pyboleto-synopsis:
@@ -81,7 +81,7 @@ or from source.
 
 To install using pip,::
 
-    $ pip install python-boleto
+    $ pip3 install python3-boleto
 
 
 .. _pyboleto-installing-from-source:
