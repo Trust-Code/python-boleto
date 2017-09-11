@@ -5,7 +5,6 @@ import difflib
 import fnmatch
 import os
 import re
-import sys
 import subprocess
 import tempfile
 import unittest
@@ -150,8 +149,9 @@ def pdftoxml(filename, output):
 
 class BoletoTestCase(unittest.TestCase):
     def _get_expected(self, bank, generated, f_type='xml'):
-        fname = os.path.join(os.path.dirname(pyboleto.__file__),
-                             "..", "tests", f_type, bank + '-expected.' + f_type)
+        fname = os.path.join(
+            os.path.dirname(pyboleto.__file__),
+            "..", "tests", f_type, bank + '-expected.' + f_type)
         if not os.path.exists(fname):
             with open(fname, 'wb') as f:
                 with open(generated) as g:
@@ -201,7 +201,6 @@ class BoletoTestCase(unittest.TestCase):
         if diff:
             self.fail("Error while checking xml for %r:\n%s" % (
                 bank, diff))
-
 
     def test_html_rendering(self):
         if "dados" not in dir(self):

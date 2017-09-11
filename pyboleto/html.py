@@ -97,10 +97,11 @@ class BoletoHTML(object):
         # Cabeçalho
         tpl_data['logo_img'] = ''
         if boletoDados.logo_image:
-            img = codecs.open(self._load_image(boletoDados.logo_image), mode='rb')
+            img = codecs.open(
+                self._load_image(boletoDados.logo_image), mode='rb')
             aux = img.read()
             aux = base64.b64encode(aux)
-            img_base64 = 'data:image/jpeg;base64,{0}'.format(aux)
+            img_base64 = 'data:image/jpeg;base64,{0}'.format(aux.decode())
             tpl_data['logo_img'] = img_base64
         tpl_data['codigo_dv_banco'] = boletoDados.codigo_dv_banco
 
@@ -146,7 +147,12 @@ class BoletoHTML(object):
         # Cabeçalho
         tpl_data['logo_img'] = ''
         if boletoDados.logo_image:
-            tpl_data['logo_img'] = self._load_image(boletoDados.logo_image)
+            img = codecs.open(
+                self._load_image(boletoDados.logo_image), mode='rb')
+            aux = img.read()
+            aux = base64.b64encode(aux)
+            img_base64 = 'data:image/jpeg;base64,{0}'.format(aux.decode())
+            tpl_data['logo_img'] = img_base64
         tpl_data['codigo_dv_banco'] = boletoDados.codigo_dv_banco
         tpl_data['linha_digitavel'] = boletoDados.linha_digitavel
 
@@ -156,9 +162,9 @@ class BoletoHTML(object):
 
         # value em unicode em data.py
         if isinstance(boletoDados.local_pagamento, str):
-            tpl_data['local_pagamento'] = boletoDados.local_pagamento.encode('utf-8')
-        else:
             tpl_data['local_pagamento'] = boletoDados.local_pagamento
+        else:
+            tpl_data['local_pagamento'] = boletoDados.local_pagamento.decode()
         tpl_data['cedente'] = boletoDados.cedente
         tpl_data['agencia_conta_cedente'] = boletoDados.agencia_conta_cedente
 
