@@ -32,10 +32,9 @@ https://github.com/eduardocereto/pyboleto
 Bancos implementados
 =================
 
-You can help writing code for more banks or printing and testing current
-implementations.
+Você pode ajudar criando códigos para mais bancos ou imprimir e testar as implementações já existentes.
 
-For now here's where we are.
+Por enquanto, são essas que temos.
 
  +----------------------+----------------+-----------------+------------+
  | **Banco**            | **Carteira /** | **Implementado**| **Testado**|
@@ -76,23 +75,23 @@ Documentation
 Installation
 ============
 
-You can install pyboleto either via the Python Package Index (PyPI)
-or from source.
+Você pode instalar o pyboleto através do Python Package Index (PyPI)
+ou instalando diretamente da fonte.
 
-To install using pip,::
+Para instalar usando o pip,::
 
     $ pip3 install python3-boleto
 
 
 .. _pyboleto-installing-from-source:
 
-Downloading and installing from source
+Baixando e instalando da fonte
 --------------------------------------
 
-Download the latest version of pyboleto from
+Baixe a última versão do pyboleto em
 http://pypi.python.org/pypi/python-boleto/
 
-You can install it by doing the following,::
+Você pode instalar utilizando os seguintes passos,::
 
     $ tar xvfz python-boleto-0.0.0.tar.gz
     $ cd python-boleto-0.0.0
@@ -101,19 +100,18 @@ You can install it by doing the following,::
 
 .. _pyboleto-installing-from-hg:
 
-Using the development version
+Utilizando a versão de desenvolvimento
 -----------------------------
 
-You can clone the repository by doing the following::
+Você pode clonar o repositório usando o seguinte comando::
 
     $ git clone https://github.com/Trust-Code/python-boleto.git
 
 .. _pyboleto-unittests:
 
-Executing unittests
+Executando unittests
 ===================
-
-You need either setuptools or distribute in order to execute the tests. Chances are you already have one or another. You also need `pdftohtml`_.::
+Você irá precisar do setuptools ou do distribute para executar os testes. Provavelmente já deve ter instalado um ou o outro. Irá precisar também do `pdftohtml`_.::
 
     $ cd pyboleto
     $ python setup.py test
@@ -126,7 +124,6 @@ You need either setuptools or distribute in order to execute the tests. Chances 
 License
 =======
 
-This software is licensed under the `New BSD License`. See the ``LICENSE``
-file in the top distribution directory for the full license text.
-
+Este software é licenciado sob a `New BSD License`. Veja o arquivo 
+``LICENSE`` na raiz do projeto para ler o texto completo.
 .. vim:tw=0:sw=4:et
