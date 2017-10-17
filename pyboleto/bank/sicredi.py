@@ -82,14 +82,14 @@ class BoletoSicredi(BoletoData):
         return "%s.%s.%s" % (
             self.agencia_cedente,
             self.posto,
-            self.convenio
+            self.conta_cedente
         )
 
     @property
     def dv_nosso_numero(self):
         dv = "%s%s%s%s2%s" % (self.agencia_cedente,
                               self.posto,
-                              self.convenio,
+                              self.conta_cedente[-5:],
                               self.format_ano(),
                               self.nosso_numero
                               )
@@ -109,7 +109,7 @@ class BoletoSicredi(BoletoData):
                                               self.dv_nosso_numero,
                                               self.agencia_cedente,
                                               self.posto,
-                                              self.convenio
+                                              self.conta_cedente[-5:]
                                               )
             n = self.modulo11(content)
             if n > 9:
