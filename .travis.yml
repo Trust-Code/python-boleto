@@ -1,8 +1,6 @@
 language: python
 python:
-- "3.4"
-- "3.5"
-- "3.6"
+- '3.6'
 before_install:
 - sudo apt-get update
 - sudo apt-get install poppler-utils
@@ -11,16 +9,13 @@ virtual_env:
 install:
 - pip install --upgrade pip
 - pip install -r requirements.txt
-script:
-  pytest --cov=pyboleto
-after_success:
-  coveralls
+script: pytest --cov=pyboleto
+after_success: coveralls
 deploy:
   provider: pypi
   user: trustcode
   on:
     branch: master3
   password:
-    secure: od11H5cpJ1FjKHE0PwjoMnvuaH40tu+l2WzxV0ehtxgBg4QssFYCF8XbeEb/IaxcvE5xETzMJy5vw63D8HUeLbGZoR2/G2QT9vhl9GLXi+1jZtGluot3jc/nC04l+cK5s4enwbX/xmy5zRcIzhs+6SMWSSY3I6/UjK4gIvw+31281aX6DpbU+s87opvPggM0OYea4Ks4ZG/IhzoBe9FfyLFm8Lkw13VcKruW/4AIFpwV3ajfhmWtOQ0CeQQjnB+f5jCoJajX5154aVv0uFiFJRqp4aMQ3ivzAJ31uY7zBu4//9InKWWSXeKha7Wr9Xcj7NNICW6DJ6h854LozXLPpBYgBpJmhA1uIr6XFgKjbt7CRJJKdd7+l5XS2z9tGTBBnexgFntYgyRYAIGDrSLEWScdTqbE22k5hUL22hxB+A4H3HTD/QuShVMtZAPwfqunsNFybz7dsfuaoVYZKqZuWkkORjpFagZQq0Jt1M38KdrNqQpfiAI1iu0pgNqW997jqZpW18PZXSEYsZOELRrAXeTe4FX5c8acZrUgTS2mUHs33tyTm7RfjVONPRku/y+vNQKtUlEgKpYj/sUx7gOtIa5DlVxktNJMA+oQqP1+7DkUId0p7bFfp336YzIob2VJZWGUY4dAvcUn5yygkRe4e5cAThXLfQRaSpqq9BoCU94=
-
-  distributions: "bdist_wheel"
+    secure: lwd9y+aZKEHwl66Ozv4pa41DK1bh0p3tPV0HM2GDzELTAgtbg5+2BhNqAzQOisgjb99Y4HVQxxFsFtDQo6DL1ze3kuMyrJ7+3uzeX/FpEYqlw/ufb+pfCc0wdy3LsVJFH7pFhD4F45WGFnaJkg3OSCX5YTz9CfEwKDdDMVG6O0tXmyALsfU2rLnM5FoQwV/l5lGDaXO17s9mO02L8kUh68nnrJ6y5CzjOj+K/uuHzSDUIkocauQzdwzw6A1mYtxEYu3uOL1osv/Bb3aHSPd9W8Jp6VBfM21aakZxnROHsNO0g2HEXUju8TUL7XmrOu9llJc9gBG6Iv0p98UoXzQCpiJ8BS9kcbCBQ4lrWbtAUz91Ql+Jmu8CZoq8sCuPypoLp+3iQcTwkKcZTguw7lPQTT1fXR6aA44zxra0miujFDTDdKnHjTHGDNagZd03oq9ciq6ObZXl9N2o/CIymi+ApmpEojG8Ufb/qXVp1VuIllw88wI6w0NG3u2KWQm6qjFg5MGPsA5YvGxZAO6pUT+FBJ/+l3dfA97pg7YgP9Pk/21+ie/5LCOBmbZ7ufQZrrL9mcRsJvSRJMHV+eKrtkt/yvr49os+/HLZpzW9ghO6F+O93BazqsVfTSBffxpSRT1iY9yQu6fNltypCoV52BweqQugF9BpZgUZefgyzhiHFQ8=
+  distributions: bdist_wheel
