@@ -57,8 +57,8 @@ class BoletoBB(BoletoData):
 
         self._convenio = ""
         self._nosso_numero = ""
-        self.local_pagamento = 'Pagável em qualquer banco até o vencimento.\
-Após, atualize o boleto no site bb.com.br.'
+        self.local_pagamento = 'Pagável em qualquer banco até o vencimento. \
+Após, atualize o boleto no site bb.com.br'
 
     def format_nosso_numero(self):
         if self.format_convenio == 7:
