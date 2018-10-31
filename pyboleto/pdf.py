@@ -596,10 +596,26 @@ class BoletoPDF(object):
         valor_documento = self._formataValorParaExibir(
             boleto_dados.valor_documento
         )
+        valor_desconto = self._formataValorParaExibir(
+            boleto_dados.valor_desconto
+        )
+        valor_cobrado = self._formataValorParaExibir(
+            boleto_dados.valor_cobrado
+        )
         self.pdf_canvas.drawRightString(
             self.width - 2 * self.space,
             y + self.space,
             valor_documento
+        )
+        self.pdf_canvas.drawRightString(
+            self.width - 2 * self.space,
+            y + self.space - 18,
+            valor_desconto
+        )
+        self.pdf_canvas.drawRightString(
+            self.width - 2 * self.space,
+            y + self.space - 90,
+            valor_cobrado
         )
         self.pdf_canvas.setFont('Helvetica', self.font_size_title)
 
