@@ -827,6 +827,10 @@ class BoletoPDF(object):
         y += 20 * mm
         d = self._drawReciboSacado(boleto_dados, x, y)
         y += d[1]
+
+        title = "%s - %s" % (boleto_dados.sacado_nome,
+                             boleto_dados.numero_documento)
+        self.pdf_canvas.setTitle(title)
         return (self.width, y)
 
     def nextPage(self):
