@@ -8,8 +8,9 @@ class BoletoCaixa(BoletoData):
         Economica Federal
 
     '''
-
-    conta_cedente = CustomProperty('conta_cedente', 11)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 6)
+    codigo_beneficiario = CustomProperty('codigo_beneficiario', 6)
     '''
         Este numero tem o inicio fixo
         Carteira SR: 80, 81 ou 82
@@ -27,21 +28,33 @@ Agências da Caixa"
         self.logo_image = "logo_bancocaixa.jpg"
 
     @property
+    def agencia_conta_cedente(self):
+        return "%s/%s-%s" % (self.agencia_cedente, self.codigo_beneficiario,
+                             self.modulo11(self.codigo_beneficiario))
+
+    @property
     def dv_nosso_numero(self):
-        resto2 = self.modulo11(self.nosso_numero.split('-')[0], 9, 1)
-        digito = 11 - resto2
-        if digito == 10 or digito == 11:
-            dv = 0
-        else:
-            dv = digito
-        return dv
+        numero = "%1s4%15s" % (self.carteira, self.nosso_numero.zfill(15))
+        return self.modulo11(numero)
 
     @property
     def campo_livre(self):
-        content = "%10s%4s%11s" % (self.nosso_numero,
-                                   self.agencia_cedente,
-                                   self.conta_cedente.split('-')[0])
-        return content
+        nosso_numero_completo = self.format_nosso_numero()
+        content = "%6s%1s%3s%1s%3s%1s%9s" % (
+            self.codigo_beneficiario,
+            self.modulo11(self.codigo_beneficiario),
+            nosso_numero_completo[2:5],
+            self.carteira,
+            nosso_numero_completo[5:8],
+            '4',  # Beneficiário emite,
+            nosso_numero_completo[8:17],
+            )
+        return "%s%s" % (content, self.modulo11(content))
 
     def format_nosso_numero(self):
-        return self.nosso_numero + '-' + str(self.dv_nosso_numero)
+        content = "%1s4%15s-%1s" % (
+            self.carteira,
+            self.nosso_numero.zfill(15),
+            self.dv_nosso_numero,
+        )
+        return content
