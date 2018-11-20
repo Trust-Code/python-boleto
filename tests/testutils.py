@@ -175,6 +175,7 @@ class BoletoTestCase(unittest.TestCase):
         expected = self._get_expected('Triplo-' + bank, generated)
         diff = diff_pdf_htmls(expected, generated)
         os.unlink(generated)
+
         os.unlink(filename)
         if diff:
             self.fail("Error while checking xml for %r:\n%s" % (
@@ -218,6 +219,7 @@ class BoletoTestCase(unittest.TestCase):
         expected = self._get_expected(bank, generated, f_type='html')
         diff = diff_files(expected, generated)
         os.unlink(generated)
+
         if diff:
             self.fail("Error while checking xml for %r:\n%s" % (
                 bank, diff))

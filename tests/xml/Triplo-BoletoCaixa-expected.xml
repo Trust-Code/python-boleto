@@ -22,7 +22,7 @@
     <text font="0" height="8" left="339" top="547" width="47">Quantidade</text>
     <text font="0" height="8" left="509" top="547" width="21">Valor</text>
     <text font="0" height="8" left="658" top="547" width="82">(=) Valor documento</text>
-    <text font="1" height="12" left="169" top="558" width="19">SR</text>
+    <text font="1" height="12" left="169" top="558" width="8">1</text>
     <text font="1" height="12" left="254" top="558" width="17">R$</text>
     <text font="1" height="12" left="791" top="558" width="49">2952,95</text>
     <text font="0" height="8" left="38" top="520" width="79">Data do documento</text>
@@ -35,12 +35,12 @@
     <text font="1" height="12" left="169" top="530" width="68">270319510</text>
     <text font="1" height="12" left="424" top="530" width="10">N</text>
     <text font="1" height="12" left="509" top="530" width="68">03/07/2012</text>
-    <text font="1" height="12" left="753" top="530" width="87">8019525086-7</text>
+    <text font="1" height="12" left="701" top="530" width="140">14000008019525086-2</text>
     <text font="0" height="8" left="38" top="477" width="47">Benefici&#225;rio</text>
     <text font="0" height="8" left="658" top="477" width="112">Ag&#234;ncia/C&#243;digo benefici&#225;rio</text>
     <text font="1" height="12" left="38" top="488" width="86"> - CPF/CNPJ: </text>
     <text font="1" height="12" left="38" top="503" width="48"> -  -  -  - </text>
-    <text font="1" height="12" left="724" top="503" width="116">1565/87000000414</text>
+    <text font="1" height="12" left="749" top="503" width="91">1565/123456-0</text>
     <text font="0" height="8" left="38" top="449" width="82">Local de pagamento</text>
     <text font="0" height="8" left="658" top="449" width="48">Vencimento</text>
     <text font="1" height="12" left="38" top="460" width="363">Preferencialmente nas Casas Lot&#233;ricas e Ag&#234;ncias da Caixa</text>
@@ -49,7 +49,7 @@
       <b>104-0</b>
     </text>
     <text font="3" height="16" left="362" top="427" width="484">
-      <b>10498.01952 25086.156582 70000.004146 1 53880000295295</b>
+      <b>10491.23456 60000.100846 01952.508644 3 53880000295295</b>
     </text>
     <text font="2" height="25" left="216" top="-239" width="69">
       <b>104-0</b>
@@ -69,10 +69,10 @@
     <text font="0" height="8" left="38" top="-156" width="88">Endere&#231;o Benefici&#225;rio</text>
     <text font="0" height="8" left="722" top="-156" width="70">Valor Documento</text>
     <text font="0" height="8" left="38" top="-28" width="58">Demonstrativo</text>
-    <text font="1" height="12" left="403" top="-200" width="116">1565/87000000414</text>
+    <text font="1" height="12" left="403" top="-200" width="91">1565/123456-0</text>
     <text font="1" height="12" left="722" top="-200" width="68">08/07/2012</text>
     <text font="1" height="12" left="41" top="-172" width="86"> - CPF/CNPJ: </text>
-    <text font="1" height="12" left="403" top="-172" width="87">8019525086-7</text>
+    <text font="1" height="12" left="403" top="-172" width="140">14000008019525086-2</text>
     <text font="1" height="12" left="573" top="-172" width="68">270319510</text>
     <text font="1" height="12" left="722" top="-172" width="68">03/07/2012</text>
     <text font="1" height="12" left="41" top="-145" width="48"> -  -  -  - </text>
@@ -97,7 +97,7 @@
     <text font="0" height="8" left="339" top="547" width="47">Quantidade</text>
     <text font="0" height="8" left="509" top="547" width="21">Valor</text>
     <text font="0" height="8" left="658" top="547" width="82">(=) Valor documento</text>
-    <text font="1" height="12" left="169" top="558" width="19">SR</text>
+    <text font="1" height="12" left="169" top="558" width="8">1</text>
     <text font="1" height="12" left="254" top="558" width="17">R$</text>
     <text font="1" height="12" left="791" top="558" width="49">2952,95</text>
     <text font="0" height="8" left="38" top="520" width="79">Data do documento</text>
@@ -110,12 +110,12 @@
     <text font="1" height="12" left="169" top="530" width="68">270319511</text>
     <text font="1" height="12" left="424" top="530" width="10">N</text>
     <text font="1" height="12" left="509" top="530" width="68">03/07/2012</text>
-    <text font="1" height="12" left="753" top="530" width="87">8019525087-5</text>
+    <text font="1" height="12" left="701" top="530" width="140">14000008019525087-0</text>
     <text font="0" height="8" left="38" top="477" width="47">Benefici&#225;rio</text>
     <text font="0" height="8" left="658" top="477" width="112">Ag&#234;ncia/C&#243;digo benefici&#225;rio</text>
     <text font="1" height="12" left="38" top="488" width="86"> - CPF/CNPJ: </text>
     <text font="1" height="12" left="38" top="503" width="48"> -  -  -  - </text>
-    <text font="1" height="12" left="724" top="503" width="116">1565/87000000414</text>
+    <text font="1" height="12" left="749" top="503" width="91">1565/123456-0</text>
     <text font="0" height="8" left="38" top="449" width="82">Local de pagamento</text>
     <text font="0" height="8" left="658" top="449" width="48">Vencimento</text>
     <text font="1" height="12" left="38" top="460" width="363">Preferencialmente nas Casas Lot&#233;ricas e Ag&#234;ncias da Caixa</text>
@@ -124,7 +124,7 @@
       <b>104-0</b>
     </text>
     <text font="3" height="16" left="362" top="427" width="484">
-      <b>10498.01952 25087.156581 70000.004146 3 53880000295295</b>
+      <b>10491.23456 60000.100846 01952.508727 4 53880000295295</b>
     </text>
     <text font="2" height="25" left="216" top="-239" width="69">
       <b>104-0</b>
@@ -144,10 +144,10 @@
     <text font="0" height="8" left="38" top="-156" width="88">Endere&#231;o Benefici&#225;rio</text>
     <text font="0" height="8" left="722" top="-156" width="70">Valor Documento</text>
     <text font="0" height="8" left="38" top="-28" width="58">Demonstrativo</text>
-    <text font="1" height="12" left="403" top="-200" width="116">1565/87000000414</text>
+    <text font="1" height="12" left="403" top="-200" width="91">1565/123456-0</text>
     <text font="1" height="12" left="722" top="-200" width="68">08/07/2012</text>
     <text font="1" height="12" left="41" top="-172" width="86"> - CPF/CNPJ: </text>
-    <text font="1" height="12" left="403" top="-172" width="87">8019525087-5</text>
+    <text font="1" height="12" left="403" top="-172" width="140">14000008019525087-0</text>
     <text font="1" height="12" left="573" top="-172" width="68">270319511</text>
     <text font="1" height="12" left="722" top="-172" width="68">03/07/2012</text>
     <text font="1" height="12" left="41" top="-145" width="48"> -  -  -  - </text>
@@ -172,7 +172,7 @@
     <text font="0" height="8" left="339" top="547" width="47">Quantidade</text>
     <text font="0" height="8" left="509" top="547" width="21">Valor</text>
     <text font="0" height="8" left="658" top="547" width="82">(=) Valor documento</text>
-    <text font="1" height="12" left="169" top="558" width="19">SR</text>
+    <text font="1" height="12" left="169" top="558" width="8">1</text>
     <text font="1" height="12" left="254" top="558" width="17">R$</text>
     <text font="1" height="12" left="791" top="558" width="49">2952,95</text>
     <text font="0" height="8" left="38" top="520" width="79">Data do documento</text>
@@ -185,12 +185,12 @@
     <text font="1" height="12" left="169" top="530" width="68">270319512</text>
     <text font="1" height="12" left="424" top="530" width="10">N</text>
     <text font="1" height="12" left="509" top="530" width="68">03/07/2012</text>
-    <text font="1" height="12" left="753" top="530" width="87">8019525088-3</text>
+    <text font="1" height="12" left="701" top="530" width="140">14000008019525088-9</text>
     <text font="0" height="8" left="38" top="477" width="47">Benefici&#225;rio</text>
     <text font="0" height="8" left="658" top="477" width="112">Ag&#234;ncia/C&#243;digo benefici&#225;rio</text>
     <text font="1" height="12" left="38" top="488" width="86"> - CPF/CNPJ: </text>
     <text font="1" height="12" left="38" top="503" width="48"> -  -  -  - </text>
-    <text font="1" height="12" left="724" top="503" width="116">1565/87000000414</text>
+    <text font="1" height="12" left="749" top="503" width="91">1565/123456-0</text>
     <text font="0" height="8" left="38" top="449" width="82">Local de pagamento</text>
     <text font="0" height="8" left="658" top="449" width="48">Vencimento</text>
     <text font="1" height="12" left="38" top="460" width="363">Preferencialmente nas Casas Lot&#233;ricas e Ag&#234;ncias da Caixa</text>
@@ -199,7 +199,7 @@
       <b>104-0</b>
     </text>
     <text font="3" height="16" left="362" top="427" width="484">
-      <b>10498.01952 25088.156580 70000.004146 5 53880000295295</b>
+      <b>10491.23456 60000.100846 01952.508800 5 53880000295295</b>
     </text>
     <text font="2" height="25" left="216" top="-239" width="69">
       <b>104-0</b>
@@ -219,10 +219,10 @@
     <text font="0" height="8" left="38" top="-156" width="88">Endere&#231;o Benefici&#225;rio</text>
     <text font="0" height="8" left="722" top="-156" width="70">Valor Documento</text>
     <text font="0" height="8" left="38" top="-28" width="58">Demonstrativo</text>
-    <text font="1" height="12" left="403" top="-200" width="116">1565/87000000414</text>
+    <text font="1" height="12" left="403" top="-200" width="91">1565/123456-0</text>
     <text font="1" height="12" left="722" top="-200" width="68">08/07/2012</text>
     <text font="1" height="12" left="41" top="-172" width="86"> - CPF/CNPJ: </text>
-    <text font="1" height="12" left="403" top="-172" width="87">8019525088-3</text>
+    <text font="1" height="12" left="403" top="-172" width="140">14000008019525088-9</text>
     <text font="1" height="12" left="573" top="-172" width="68">270319512</text>
     <text font="1" height="12" left="722" top="-172" width="68">03/07/2012</text>
     <text font="1" height="12" left="41" top="-145" width="48"> -  -  -  - </text>
