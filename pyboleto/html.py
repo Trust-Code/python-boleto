@@ -7,7 +7,7 @@
 
     :copyright: © 2012 by Artur Felipe de Sousa
     :license: BSD, see LICENSE for more details.
-
+    
 """
 import os
 import string
@@ -74,7 +74,7 @@ class BoletoHTML(object):
     def _load_template(self, template):
         pyboleto_dir = os.path.dirname(os.path.abspath(__file__))
         template_path = os.path.join(pyboleto_dir, 'templates', template)
-        with open(template_path, 'r') as tpl:
+        with open(template_path, 'r', encoding='utf-8') as tpl:
             template_content = tpl.read()
         return template_content
 
