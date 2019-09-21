@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+import datetime
+
 import pyboleto
 from pyboleto.bank.bradesco import BoletoBradesco
 from pyboleto.bank.caixa import BoletoCaixa
 from pyboleto.bank.bancodobrasil import BoletoBB
 from pyboleto.bank.santander import BoletoSantander
 from pyboleto.pdf import BoletoPDF
-import datetime
 
 
 def print_bb():
@@ -159,7 +161,7 @@ def print_caixa():
     listaDadosCaixa = []
     for i in range(2):
         d = BoletoCaixa()
-        d.carteira = 'SR'  # Contrato firmado com o Banco Bradesco
+        d.carteira = '1'
         d.cedente = 'Empresa ACME LTDA'
         d.cedente_documento = "102.323.777-01"
         d.cedente_endereco = ("Rua Acme, 123 - Centro - Sao Paulo/SP - " +
