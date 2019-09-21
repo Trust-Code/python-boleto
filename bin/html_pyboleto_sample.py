@@ -138,7 +138,7 @@ def get_data_caixa():
     listaDados = []
     for i in range(2):
         d = BoletoCaixa()
-        d.carteira = 'SR'  # Contrato firmado com o Banco Bradesco
+        d.carteira = '1'
         d.cedente = 'Empresa ACME LTDA'
         d.cedente_documento = "102.323.777-01"
         d.cedente_endereco = "Rua Acme, 123 - Centro - Sao Paulo/SP - \
@@ -227,6 +227,7 @@ def print_all():
         if sys.version_info < (3,):
             boleto_PDF = BoletoPDF('boleto-' + bank + '-normal-teste.pdf')
         boleto_HTML = BoletoHTML('boleto-' + bank + '-normal-teste.html')
+
         for boleto_data in boleto_datas:
             if sys.version_info < (3,):
                 boleto_PDF.drawBoleto(boleto_data)
