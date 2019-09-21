@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import pyboleto
-from pyboleto.bank.real import BoletoReal
 from pyboleto.bank.bradesco import BoletoBradesco
 from pyboleto.bank.caixa import BoletoCaixa
 from pyboleto.bank.bancodobrasil import BoletoBB
@@ -53,50 +52,6 @@ def print_bb():
     boleto = BoletoPDF('boleto-bb-formato-normal-teste.pdf')
     for i in range(len(listaDados)):
         boleto.drawBoleto(listaDados[i])
-        boleto.nextPage()
-    boleto.save()
-
-
-def print_real():
-    listaDadosReal = []
-    for i in range(2):
-        d = BoletoReal()
-        d.carteira = '57'  # Contrato firmado com o Banco Real
-        d.cedente = 'Empresa ACME LTDA'
-        d.cedente_documento = "102.323.777-01"
-        d.cedente_endereco = ("Rua Acme, 123 - Centro - Sao Paulo/SP - " +
-                              "CEP: 12345-678")
-        d.agencia_cedente = '0531'
-        d.conta_cedente = '5705853'
-
-        d.data_vencimento = datetime.date(2010, 3, 27)
-        d.data_documento = datetime.date(2010, 2, 12)
-        d.data_processamento = datetime.date(2010, 2, 12)
-
-        d.instrucoes = [
-            "- Linha 1",
-            "- Sr Caixa, cobrar multa de 2% após o vencimento",
-            "- Receber até 10 dias após o vencimento",
-            ]
-        d.demonstrativo = [
-            "- Serviço Teste R$ 5,00",
-            "- Total R$ 5,00",
-            ]
-        d.valor_documento = 5.00
-
-        d.nosso_numero = "%d" % (i + 2)
-        d.numero_documento = "%d" % (i + 2)
-        d.sacado = [
-            "Cliente Teste %d" % (i + 1),
-            "Rua Desconhecida, 00/0000 - Não Sei - Cidade - Cep. 00000-000",
-            ""
-            ]
-        listaDadosReal.append(d)
-
-    # Real Formato normal - uma pagina por folha A4
-    boleto = BoletoPDF('boleto-real-formato-normal-teste.pdf')
-    for i in range(len(listaDadosReal)):
-        boleto.drawBoleto(listaDadosReal[i])
         boleto.nextPage()
     boleto.save()
 
@@ -275,9 +230,6 @@ def print_all():
 
     print("Caixa")
     print_caixa()
-
-    print("Real")
-    print_real()
 
     print("Santander")
     print_santander()
