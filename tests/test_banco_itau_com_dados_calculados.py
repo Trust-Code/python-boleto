@@ -7,7 +7,7 @@ from pyboleto.bank.itau import BoletoItau
 from .testutils import BoletoTestCase
 
 
-class TestBancoItau(BoletoTestCase):
+class TestBancoItauComDadosCalculados(unittest.TestCase):
     def setUp(self):
         self.dados = []
         for i in range(3):
@@ -51,7 +51,8 @@ class TestBancoItau(BoletoTestCase):
         self.assertEqual(self.dados[0].dv_agencia_conta_cedente, 0)
 
 
-suite = unittest.TestLoader().loadTestsFromTestCase(TestBancoItau)
+suite = unittest.TestLoader().loadTestsFromTestCase(
+    TestBancoItauComDadosCalculados)
 
 if __name__ == '__main__':
     unittest.main()

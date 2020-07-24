@@ -164,8 +164,8 @@ class BoletoData(object):
         self.sacado_endereco = kwargs.pop('sacado_endereco', "")
         self.sacado_bairro = kwargs.pop('sacado_bairro', "")
         self.sacado_cep = kwargs.pop('sacado_cep', "")
-        self.codigo_barras = kwargs.pop('codigo_barras', None)
-        self.linha_digitavel_ext = kwargs.pop('linha_digitavel_ext', None)
+        self.codigo_barras = kwargs.pop('codigo_barras', "")
+        self.linha_digitavel_ext = kwargs.pop('linha_digitavel_ext', "")
         if kwargs:
             raise TypeError("Paramêtro(s) desconhecido: %r" % (kwargs, ))
         self._cedente_endereco = None
@@ -192,7 +192,7 @@ class BoletoData(object):
         Total    44
         """
 
-        if not self.codigo_barras:
+        if self.codigo_barras != "":
             return self.codigo_barras
 
         for attr, length, data_type in [
@@ -444,7 +444,7 @@ class BoletoData(object):
         de barras não estiver legível.
         """
 
-        if not self.linha_digitavel_ext:
+        if self.linha_digitavel_ext != "":
             return self.linha_digitavel_ext
 
         linha = self.barcode
