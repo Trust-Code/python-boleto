@@ -41,6 +41,7 @@ class CustomProperty(object):
     :type length: integer
 
     """
+
     def __init__(self, name, length):
         self.name = name
         self.length = length
@@ -117,6 +118,8 @@ class BoletoData(object):
 
     **Parâmetros não obrigatórios**:
 
+    :param codigo_barras: Se o codigo de barras for informado, não calcula
+    :param linha_digitavel_ext: Se a linha digitável for informada (com espaços), não calcula
     :param quantidade:
     :param especie: Nunca precisa mudar essa opção *(default: 'R$')*
     :param especie_documento:
@@ -161,6 +164,8 @@ class BoletoData(object):
         self.sacado_endereco = kwargs.pop('sacado_endereco', "")
         self.sacado_bairro = kwargs.pop('sacado_bairro', "")
         self.sacado_cep = kwargs.pop('sacado_cep', "")
+        self.codigo_barras = kwargs.pop('codigo_barras', None)
+        self.linha_digitavel_ext = kwargs.pop('linha_digitavel_ext', None)
         if kwargs:
             raise TypeError("Paramêtro(s) desconhecido: %r" % (kwargs, ))
         self._cedente_endereco = None
@@ -186,6 +191,9 @@ class BoletoData(object):
         20 a 44  25  Campo Livre definido por cada banco
         Total    44
         """
+
+        if not self.codigo_barras:
+            return self.codigo_barras
 
         for attr, length, data_type in [
                 ('codigo_banco', 3, str),
@@ -435,6 +443,10 @@ class BoletoData(object):
         Esta é a linha que o cliente pode utilizar para digitar se o código
         de barras não estiver legível.
         """
+
+        if not self.linha_digitavel_ext:
+            return self.linha_digitavel_ext
+
         linha = self.barcode
         if not linha:
             raise BoletoException("Boleto doesn't have a barcode")
