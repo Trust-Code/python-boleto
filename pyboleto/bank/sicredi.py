@@ -27,7 +27,7 @@ class BoletoSicredi(BoletoData):
 
         self.codigo_banco = "748"
         self.local_pagamento = u'Pagável prefencialmente nas Coop. de Crédito Sicredi'
-        self.logo_image = "logo_sicredi.jpg"
+        self.logo_image = "logo_sicredi.png"
 
     def format_ano(self):
         ano = str(self.data_vencimento.strftime('%y'))
