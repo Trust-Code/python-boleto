@@ -169,6 +169,8 @@ class BoletoData(object):
         self._sacado = None
         self._valor = None
         self._valor_documento = None
+        self._valor_desconto = None
+        self._valor_cobrado = None
         self.label_cedente = 'Agência/Código beneficiário'
 
     @property
@@ -331,6 +333,31 @@ class BoletoData(object):
         else:
             self._valor_documento = Decimal(str(val))
     valor_documento = property(_get_valor_documento, _set_valor_documento)
+
+
+    def _get_valor_desconto(self):
+        if self._valor_desconto is not None:
+            return "%.2f" % self._valor_desconto
+
+    def _set_valor_desconto(self, val):
+        if type(val) is Decimal:
+            self._valor_desconto = val
+        else:
+            self._valor_desconto = Decimal(str(val))
+    valor_desconto = property(_get_valor_desconto, _set_valor_desconto)
+
+
+    def _get_valor_cobrado(self):
+        if self._valor_cobrado is not None:
+            return "%.2f" % self._valor_cobrado
+
+    def _set_valor_cobrado(self, val):
+        if type(val) is Decimal:
+            self._valor_cobrado = val
+        else:
+            self._valor_cobrado = Decimal(str(val))
+    valor_cobrado = property(_get_valor_cobrado, _set_valor_cobrado)
+
     """Valor do Documento convertido para :class:`Decimal`.
 
     De preferência para passar um valor em :class:`Decimal`, se não for passado
