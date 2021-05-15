@@ -36,3 +36,7 @@ venv
 
 .cache
 .pytest_cache
+
+.idea
+bin/*.pdf
+bin/*.html

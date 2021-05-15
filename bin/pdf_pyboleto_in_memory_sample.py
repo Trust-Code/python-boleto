@@ -1,7 +1,11 @@
+
+import io
+import datetime
+
 import pyboleto
 from pyboleto.bank.sicredi import BoletoSicredi
 from pyboleto.pdf import BoletoPDF
-import datetime
+
 
 d = BoletoSicredi()
 d.aceite = 'Sim'
@@ -44,7 +48,6 @@ d.sacado = [
     ""
     ]
 
-import io
 buf = io.BytesIO()
 
 boleto = BoletoPDF(buf)
